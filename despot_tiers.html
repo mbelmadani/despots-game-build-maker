@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Despot's Game Build Maker</title>
+    <style>
+      body {
+        background-image: url("images/background.png");
+        background-size: cover;
+      }
+      
+      table {
+        margin: 50px auto;
+        border-collapse: collapse;
+      }
+      
+      td {
+        width: 100px;
+        height: 100px;
+        border: 1px solid navajowhite ;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: 18px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      table {
+        position: fixed;
+        bottom: 0;
+      }
+
+      h1 {
+        text-align: center;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 3rem;
+        color: #fff;
+        text-shadow: 2px 2px 2px #000;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border-bottom: 2px solid #fff;
+    }
+
+      
+    </style>
+  </head>
+  <body>
+    <h1 class="header">Despot's Game Build Maker</h1>
+    <div>
+      <table>
+        <tr>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+        </tr>
+        <tr>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+        </tr>
+        <tr>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+        </tr>
+        <tr>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+        </tr>
+        <tr>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+        </tr>
+        <tr>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+        </tr>
+        <tr>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+          <td class="cell"></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      // define class and tier options
+      const classOptions = ["tank", "healer", "mage", "egghead", "cultist", "fencer", "trickster", "fighter", "thrower", "shooter", "newbie", ""];
+      const tierOptions = [1, 2, 3, 4, 5];
+
+      // add click listener to cells
+      const cells = document.querySelectorAll('.cell');
+      cells.forEach(cell => {
+        let classIndex = -1;
+        let tierIndex = 0;
+        cell.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+          tierIndex = (tierIndex + 1) % tierOptions.length;
+          cell.innerHTML = `<img src="images/${classOptions[classIndex]}_${tierOptions[tierIndex]}.png">`;
+        });
+        cell.addEventListener('click', (e) => {
+          classIndex = (classIndex + 1) % classOptions.length;
+          if (classIndex === classOptions.length - 1) {
+            tierIndex = 0;
+            cell.innerHTML = "";
+          } else {
+            cell.innerHTML = `<img src="images/${classOptions[classIndex]}_${tierOptions[tierIndex]}.png">`;
+          }
+        });
+      });
+
+    </script>
+    
+  </body>
+</html>
